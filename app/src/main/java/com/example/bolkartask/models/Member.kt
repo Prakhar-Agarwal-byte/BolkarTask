@@ -8,5 +8,6 @@ data class Member(
     val n: String,
     val socketid: String,
     val u: String,
-    val visible: Boolean
+    val visible: Boolean,
+    var role: String,
 )

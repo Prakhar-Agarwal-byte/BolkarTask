@@ -3,4 +3,6 @@
     <string name="other_joined_members">अन्य यूजर जो जुड़ चुके हैं।</string>
     <string name="invite_people">+ आमंत्रित करें</string>
     <string name="exit">✌️बाहर जाएं</string>
+    <string name="host">होस्ट</string>
+    <string name="speaker">स्पीकर</string>
 </resources>
