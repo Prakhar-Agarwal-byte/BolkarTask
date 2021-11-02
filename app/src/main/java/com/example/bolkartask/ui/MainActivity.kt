@@ -10,7 +10,6 @@ import com.example.bolkartask.api.BolkarApiInstance
 import com.example.bolkartask.databinding.ActivityMainBinding
 import com.example.bolkartask.models.Member
 import com.example.bolkartask.repositories.RoomRepository
-import com.example.bolkartask.ui.adapters.ElevatedMembersAdapter
 import com.example.bolkartask.ui.adapters.MembersAdapter
 import com.example.bolkartask.viewmodels.RoomViewModel
 import com.example.bolkartask.viewmodels.RoomViewModelFactory
@@ -35,23 +34,23 @@ class MainActivity : AppCompatActivity() {
 
         val rvElevatedMembers = binding.rvElevatedMembers
         rvElevatedMembers.layoutManager = GridLayoutManager(this, 3)
-        val elevatedMembersAdapter = ElevatedMembersAdapter()
-        rvElevatedMembers.adapter = elevatedMembersAdapter
+        val membersAdapter1 = MembersAdapter("elevatedMembers")
+        rvElevatedMembers.adapter = membersAdapter1
 
         roomViewModel.hostAndSpeakers.observe(this, {
             it?.let {
-                elevatedMembersAdapter.setData(it)
+                membersAdapter1.setData(it)
             }
         })
 
         val rvMembers = binding.rvMembers
         rvMembers.layoutManager = GridLayoutManager(this, 4)
-        val membersAdapter = MembersAdapter()
-        rvMembers.adapter = membersAdapter
+        val membersAdapter2 = MembersAdapter("members")
+        rvMembers.adapter = membersAdapter2
 
         roomViewModel.roomMembers.observe(this, {
             it?.let {
-                membersAdapter.setData(it as ArrayList<Member>)
+                membersAdapter2.setData(it as ArrayList<Member>)
             }
         })
     }
